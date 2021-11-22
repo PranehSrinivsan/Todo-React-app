@@ -1,23 +1,37 @@
-import logo from './logo.svg';
+import React,{useState} from 'react';
 import './App.css';
+import Header from './componnents/Header';
+import Form from './componnents/Form';
+import List from './componnents/List';
 
-function App() {
+const App=()=>{
+
+  const[task ,setTask] = useState("");
+  const[category ,setCategory] = useState("");
+  const[date ,setDate] = useState(0);
+  const[todos ,setTodos] = useState([]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <Header/>
+
+    <Form
+    task = {task}
+    setTask = {setTask}
+    category = {category}
+    setCategory = {setCategory}
+    date = {date}
+    setDate = {setDate} 
+    todos = {todos}
+    setTodos = {setTodos}
+    />
+
+    <List
+    todos = {todos}
+    setTodos = {setTodos}    
+    />
+
     </div>
   );
 }
